@@ -54,13 +54,13 @@ class PaymentPayeerController extends Controller{
                 DB::connection()->getPdo()->rollBack();
             }
         }
-         return redirect()->action('ZaLaravel\LaravelPayeer\Controllers\IpnPayeerController@getResult',
+         /*return redirect()->action('ZaLaravel\LaravelPayeer\Controllers\IpnPayeerController@getResult',
              array('m_shop' => $m_shop,
                  'm_amount' => $m_amount,
                  'm_orderid' => $m_orderid,
                  'm_curr' => $m_curr,
                  'm_desc' => $m_desc,
-                 'm_sign' => $sign));
-        //header("Location:https://payeer.com/merchant/?m_shop=$m_shop&m_orderid=$m_orderid&m_amount=$m_amount&m_curr=$m_curr&m_desc=$m_desc&m_sign=$sign");
+                 'm_sign' => $sign));*/
+        header("Location:https://payeer.com/merchant/?m_shop=$m_shop&m_orderid=$m_orderid&m_amount=$m_amount&m_curr=$m_curr&m_desc=$m_desc&m_sign=$sign");
     }
 }
