@@ -36,6 +36,7 @@ class PaymentPayeerController extends Controller{
 
         $sign = strtoupper(hash('sha256', implode(':', $arHash)));
 
+        //dd($sign);
         if($m_amount != 0) {
             try {
                 DB::beginTransaction();
@@ -43,7 +44,7 @@ class PaymentPayeerController extends Controller{
                     $payment->uid = $m_orderid;
                     $payment->user_id = $user;
                     $payment->balance = $m_amount;
-                    $payment->description = $m_desc;
+                    $payment->description = base64_decode($m_desc);
                     $payment->operation = '+';
                     $payment->save();
                 DB::commit();
