@@ -20,7 +20,7 @@ class PaymentPayeerController extends Controller{
         $user = $request->user()->id;
         $m_shop =  '75722594';
         $m_orderid = mt_rand();
-        $m_amount = $request->get('OutSum');
+        $m_amount = number_format($request->get('OutSum'), 2, '.', '');
         $m_curr = 'RUB';
         $m_desc = base64_encode('Пополнение баланса');
         $m_key = 'halyava';
