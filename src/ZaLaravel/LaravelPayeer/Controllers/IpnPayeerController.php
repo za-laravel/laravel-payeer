@@ -22,6 +22,7 @@ class IpnPayeerController extends Controller{
     {
         if ($_SERVER['REMOTE_ADDR'] != '37.59.221.230') return;
 
+        //dd(\Request::all());
         $m_key = 'halyava';
         $m_shop = $request->get('m_shop');
         $m_orderid = $request->get('m_orderid');

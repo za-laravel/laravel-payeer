@@ -54,8 +54,13 @@ class PaymentPayeerController extends Controller{
                 DB::connection()->getPdo()->rollBack();
             }
         }
-        /* return redirect()->action('ZaLaravel\LaravelRobokassa\Controllers\IpnRobokassaController@getResult',
-             array('OutSum' => $sum, 'InvId' => $inv_id, 'SignatureValue' => $crc));*/
-        header("Location:https://payeer.com/merchant/?m_shop=$m_shop&m_orderid=$m_orderid&m_amount=$m_amount&m_curr=$m_curr&m_desc=$m_desc&m_sign=$sign");
+         return redirect()->action('ZaLaravel\LaravelPayeer\Controllers\IpnPayeerController@getResult',
+             array('m_shop' => $m_shop,
+                 'm_amount' => $m_amount,
+                 'm_orderid' => $m_orderid,
+                 'm_curr' => $m_curr,
+                 'm_desc' => $m_desc,
+                 'm_sign' => $sign));
+        //header("Location:https://payeer.com/merchant/?m_shop=$m_shop&m_orderid=$m_orderid&m_amount=$m_amount&m_curr=$m_curr&m_desc=$m_desc&m_sign=$sign");
     }
 }
